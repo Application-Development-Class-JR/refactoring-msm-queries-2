@@ -13,13 +13,32 @@
 #  director_id :integer
 #
 class Movie < ApplicationRecord
-  def director
-    key = self.director_id
+ 
+  #has_many(:actors)
+  has_many(:characters)
+  
+  #def director
+    #key = self.director_id
 
-    matching_set = Director.where({ :id => key })
+    #matching_set = Director.where({ :id => key })
 
-    the_one = matching_set.at(0)
+    #the_one = matching_set.at(0)
 
-    return the_one
-  end
+    #return the_one
+
+    #def director
+    
+      #my_director_id = self.director_id
+  
+      #matching_directors = Director.where({ :id => my_director_id })
+  
+      #the_director = matching_directors.at(0)
+  
+      #return the_director
+
+      belongs_to(:director)
+  
+    #end
+  #end
+
 end
